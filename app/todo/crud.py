@@ -24,3 +24,9 @@ def update_todo(todo_id: int, updated_todo: dict):
             save_data(todos)
             return updated_todo
     return None
+
+
+def delete_todo(todo_id: int):
+    todos = load_data()
+    updated_todos = [todo for todo in todos if todo['id'] != todo_id]
+    save_data(updated_todos)
