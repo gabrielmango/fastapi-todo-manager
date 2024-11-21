@@ -14,3 +14,13 @@ def create_todo(todo: dict):
     todos = load_data()
     todos.append(todo)
     save_data(todos)
+
+
+def update_todo(todo_id: int, updated_todo: dict):
+    todos = load_data()
+    for index, todo in enumerate(todos):
+        if todo['id'] == todo_id:
+            todos[index] = updated_todo
+            save_data(todos)
+            return updated_todo
+    return None
