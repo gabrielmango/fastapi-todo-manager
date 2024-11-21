@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 
-from app.todo.crud import (create_todo, get_all_todos, get_todo_by_id,
-                           update_todo)
+from app.todo.crud import (create_todo, delete_todo, get_all_todos,
+                           get_todo_by_id, update_todo)
 from app.todo.models import Todo
 
 todo_router = APIRouter()
@@ -32,3 +32,9 @@ def modify_todo(todo_id: int, todo: Todo):
     if not updated_todo:
         raise HTTPException(status_code=404, detail='Todo not found')
     return updated_todo
+
+
+@todo_router.delete('/{todo_id}')
+def remove_todo(todo_id: int):
+    delete_todo(todo_id)
+    return {'message': 'Todo deleted successfully'}

@@ -1,11 +1,5 @@
 [
     {
-        "id": 0,
-        "title": "string",
-        "description": "string",
-        "completed": false
-    },
-    {
         "id": 1,
         "title": "To-do 1",
         "description": "To-do 1",
