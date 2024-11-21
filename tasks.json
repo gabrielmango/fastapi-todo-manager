@@ -7,8 +7,8 @@
     },
     {
         "id": 1,
-        "title": "string",
-        "description": "string",
+        "title": "To-do 1",
+        "description": "To-do 1",
         "completed": false
     }
 ]
