@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 
-from app.todo.crud import get_all_todos, get_todo_by_id
+from app.todo.crud import create_todo, get_all_todos, get_todo_by_id
+from app.todo.models import Todo
 
 todo_router = APIRouter()
 
@@ -16,3 +17,9 @@ def retrieve_todo(todo_id: int):
     if not todo:
         raise HTTPException(status_code=404, detail='Todo not found')
     return todo
+
+
+@todo_router.post('/')
+def add_todo(todo: Todo):
+    create_todo(todo.dict())
+    return {'message': 'Todo created successfully'}
